@@ -1,0 +1,93 @@
+createdAt: "2019-01-17T18:46:42.703Z"
+updatedAt: "2019-01-17T19:48:33.652Z"
+type: "MARKDOWN_NOTE"
+folder: "862c3dd2236c59518d64"
+title: "ESE 650 Lecture 1 - Probability Review"
+tags: [
+  "lecture_1"
+]
+content: '''
+  # ESE 650 Lecture 1 - Probability Review
+  1/17/2019 
+  
+  
+  Probability gives us a language to talk about what we know and don't know. Uncertainty! 
+  * We may not perceive the world precisely
+  * We may not actuate the world precisely
+  
+  ---
+  ### Discrete probability
+  Discrete probability that has processes with discrete outcomes, like flipping a coun.
+  
+  * *Experiment*: a procedure that can be repeated and is random
+  * *Sample space $\\Omega$*: Set of possible outcomes  e.g. {HH, HT, TH, TT}
+  * *Event $A$*: A subset of possible outcomes e.g. {HH}
+  * *Probability of Event $P(A)$*: A function mapping events to numbers between 0 and 1. 
+  
+  ### Axioms of Probability
+  * $P(A) \\geq 0$
+  * $P(\\Omega) = 1$
+  * If {$A_i$} are disjoint (intersection of $A_i, A_j$ is the empty set) then $P(\\cup_i A_i ) = \\sum_i P(A_i)$
+  
+  
+  Corollary:
+  * $P(\\emptyset) = 0$
+  * max {$P(A), P(B)$} $\\leq P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\leq P(A) + P(B)$
+  
+  --- 
+  
+  **Conditional Probability:** $P(A|B) = \\frac{P(A\\cap B)}{P(B)},\\ P(B) \\neq 0$. This essentially says given $B$ happened, what's the probability that $A$ happened?
+  
+  --- 
+  **Total Probability Theorem:** If $\\{A_1,...,A_n\\}$ is a partition of $\\Omega$, i.e., 
+  * $\\Omega \\cup_i A_i$
+  *  $A_i \\cap A_j = \\emptyset, i\\neq j$
+  Then we can conclude:
+  $$P(B) = \\sum_{i=1}^{n} P(B \\cap A_i)$$
+  
+  ---
+  **Bayes Theorem:** If $\\{A_1,...,A_n\\}$ is a partition of $\\Omega$, then 
+  $$P(A_i|B) = \\frac{P(B|A_i) P(A_i)}{\\sum_{j=1}^{n}P(B|A_j)P(A_j)}$$
+  
+  ---
+  **Independent Events**: One event gives no information about the other 
+  
+  --- 
+  We care about measuring things, which may in fact be uncountable. We need to generalize the notion of sets to handle this idea. This is measure theory. Some explanations are on the slides!
+  
+  ### Random Variables
+  We want to distinguish between discrete and continuous random variables. We want to relate this notion of a set of outcomes and things we can compute with.
+  
+  **Random Variable**: a measureable quantity from a random process, i.e. a beaker measurement as a random variable for the amount of rain. 
+  Wikipedia definition:  is a variable whose possible values are outcomes of a random phenomenon.[1] More specifically, a random variable is defined as a function that maps the outcomes of an unpredictable process to numerical quantities, typically real numbers
+  
+  Imagine a random variable that takes input of 3 coin flips and counts the number of heads. Possible outcomes are {0,1,2,3}. The probability of the number of heads being less than i is {1/8,..} which is cumulative.This is the **Cumulative Distribution Funciton (CDF) $F(x)$**. Ideally, the Cumulative Distribution Funciton (CDF) is differentiable, and goes from 0 to 1, non-decreasing. [Cumulative distribution function - Wikipedia](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
+  
+  ![](/home/rmli/Boostnote/notes/images/cdf.png =500x)
+  *A CDF example.*
+  
+  **Probability Distribution/Density Function $f(x)$**: [Probability density function - Wikipedia](https://en.wikipedia.org/wiki/Probability_density_function) it is a function describing the density of a variable. The integral of the function must be equal to 1. The values of the function are NOT probabilities. 
+  
+  ![](/home/rmli/Boostnote/notes/images/pdf.png =500x)
+  *A PDF example.*
+  
+  ---
+  **Expectation**: Say we throw two coins. Let's say we have a random variable $a$ which maps to how many heads we have. What is the expected value of $a$, $E(a)$?, The outcomes are HH, HT, TH, and TT. $a$ would be 2,1,1,0 respectively. The expectation is each value times the probability of each outcome:
+  $$E(a) = 2*0.25 + 1*0.25 + 1*0.25 + 0*0.25$$
+  
+  In more rigorous terms, if we have a random variable $X$ measureable function $g(x)$ and Probabilty Density Function (PDF) $f(x)$, then 
+  
+  $$E[g(X)] = \\int_{\\mathbb{R}^n} g(x) p(x) dx $$
+  
+  Some definitions regarding random variable $X$:
+  * *Mean $\\mu$*: $E(X) = \\mu$. The average value of the random variable. 
+  * *Variance $\\sigma$*: $E[(X-\\mu)^2] = \\sigma^2$. This says something about the spread of the distribution. 
+  
+  ---
+  **Joint Distribution**: Consider the idea that we have two random variables $X, Y$. We can have the probability of each set of events $(x_i, y_j)$ and imagine probability $P(X,Y)$. 
+  
+  The **marginal distribution** is $P(X)$, which integrates the joint distribution $P(X,Y)$ along $Y$.
+  
+'''
+isStarred: false
+isTrashed: false

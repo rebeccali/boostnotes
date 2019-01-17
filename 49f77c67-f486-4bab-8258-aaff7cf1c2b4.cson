@@ -1,13 +1,29 @@
 createdAt: "2019-01-17T17:01:22.632Z"
-updatedAt: "2019-01-17T17:01:34.033Z"
+updatedAt: "2019-01-17T17:38:59.449Z"
 type: "MARKDOWN_NOTE"
 folder: "e48da38f90ddf99f14e3"
-title: "Logistics"
+title: "MEAM 620 Logistics"
 tags: [
   "logistics"
 ]
 content: '''
-  # Logistics 
+  # MEAM 620 Logistics 
+  ### What is 620 about?
+  It's sort of about quadrotors, but really it's about kinematircs, dynamics, control, traj planning, pose, CV, and sensor fusion. 
+  
+  Use Piazza. 
+  
+  Grading:
+  * HW 20%
+  * Projects 50%
+  * Exams 30%
+    * Exam 2/28 
+    * Final 5/8 
+  
+  Textbook: Peter Corke (2017 edition) Robotics, Vision and Control. With matlab stuff!
+  
+  Old website alliance.seas.upenn.edu/~meam620/wiki
+  Companion Corsera: https://www.corsera.org/learn/robotics-flight/
   
 '''
 isStarred: false

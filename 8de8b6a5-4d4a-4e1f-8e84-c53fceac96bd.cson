@@ -1,0 +1,45 @@
+createdAt: "2019-01-17T18:27:43.260Z"
+updatedAt: "2019-01-17T18:49:25.345Z"
+type: "MARKDOWN_NOTE"
+folder: "862c3dd2236c59518d64"
+title: "ESE 650 Logistics"
+tags: [
+  "logistics"
+]
+content: '''
+  # ESE 650 Logistics
+  Kostas Daniilidis and C.J. Taylor
+  
+  ### Course topics
+  * Ways robotics systems can learn from date
+    * Gathering data to build a model of engironment
+    * Using multiple trials to find strategies
+  
+  In depth topics:
+  * Probability review
+  * Baysian filtering
+  * SLAM
+  * Markov chains (HMM)
+  * Model free prediction/Control
+  * Reinforcement Learning (RL) (a whole month)
+  
+  ### Course texts
+  * *Probablistic robotics* - Wolfram, Thrun
+  * *Intro to probablilty* - Blitzstein and Hwang
+  * *Intro to lin alg* - Strang
+  * *Reinforcement learning* - Sutton and Barton
+  
+  There will be a review session for stuff like Python, Tensor Flow. 
+  
+  ### Grading
+  * Homework 75% and homework assignments in Python
+  * Final 25%
+  
+  ### Late policy
+  Penalized 10% of grade you would have recieved
+  
+  ### Course website
+  Canvas has everything including recordings of lectures. There's also Piazza - make questions public.
+'''
+isStarred: false
+isTrashed: false

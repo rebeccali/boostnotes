@@ -1,0 +1,23 @@
+createdAt: "2019-01-17T17:44:00.614Z"
+updatedAt: "2019-01-17T17:58:53.192Z"
+type: "MARKDOWN_NOTE"
+folder: "8007a4c3335d21d5fd7b"
+title: "Meam 620 Lecture 1 - Introduction"
+tags: [
+  "lecture_1"
+]
+content: '''
+  # Meam 620 Lecture 1 - Introduction
+  1/17/2019
+  ### Vectors!
+  We have basis vectors for some reference frame. 
+  
+  What if we want to transform from $A$ to $B$, with basis vectors $a_i, b_i$?
+  
+  Use a rotation matrix!
+  $$^A p = ^A R_B\\ ^Bp $$
+  
+  Next time: Rigid body transofrmations, 
+'''
+isStarred: false
+isTrashed: false
