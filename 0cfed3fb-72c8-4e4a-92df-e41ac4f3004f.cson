@@ -1,0 +1,26 @@
+createdAt: "2019-01-16T18:58:29.903Z"
+updatedAt: "2019-01-16T19:09:54.334Z"
+type: "MARKDOWN_NOTE"
+folder: "5344b9527602b628a396"
+title: "ESE 619 Logistics"
+tags: []
+content: '''
+  # ESE 619 Logistics
+  
+  * Slides are usually on Canvas.
+    * Slides are not meant to be self-explanatory. 
+  * 30% Problem sets, 25% midterm, 45% final. 
+    * Final Monday may 6, 12-2pm. 
+    * Problem sets maybe every week or every other week.
+  
+  Prerequisites:
+  * Linear systems, bode plots, etc. 
+  * You can take the class without this, but it will be more difficult.
+  
+  Class Structure:
+  * Pre-spring break, lots of covering of optimal control
+  * Post spring break: MPC stuff. 
+  
+'''
+isStarred: false
+isTrashed: false

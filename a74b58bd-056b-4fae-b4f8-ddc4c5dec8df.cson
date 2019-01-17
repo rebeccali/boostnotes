@@ -1,0 +1,74 @@
+createdAt: "2019-01-16T18:28:19.375Z"
+updatedAt: "2019-01-16T19:42:24.167Z"
+type: "MARKDOWN_NOTE"
+folder: "5344b9527602b628a396"
+title: "ESE 619 Lecture 1"
+tags: [
+  "Lecture_1"
+  "logistics"
+  "mpc_formulation"
+]
+content: '''
+  # ESE 619 Lecture 1
+  1/16/2019 
+  Manfred Morari 
+  
+  --- 
+  ## Chapter 1: Introduction and Overview
+  
+  #### Optimization based control (1-9)
+  In traditional control, we replace the traditional controller, maybe $G(s)$ with an optimizer. The bottleneck historically was that computation was too expensive, forcing us to use PI controllers.
+  
+  *Slide 4*
+  ![](/home/rmli/Boostnote/notes/images/blockdia.png =500x)
+  
+  *Slide 5*
+  What is a more complicated control problem that we might want this? Constraints, environment etc. make simple problems much harder, like a race car. 
+  
+  *Slide 6-9*
+  We can write this as an optimization: Minimize lap time subject to avoiding cars, etc. But we can't predict everything in the future, so we need feedback! Let's apply the first control action, then **redo** the optimization, taking into account new constraints. This is called **Receding Horizon Control**. 
+  
+  Why do we need feedback? Uncertainty, instability, limited ability to forecast all limit the accuracy of our predictions, thus we need feedback. 
+  
+  #### Concept of MPC (10-14)
+  
+  *Slide 11*
+  Classical control typically coverns itself with disturbance rejection , noise insensitifiy, model uncertainty. T
+  
+  MPC does not replace classical control, it has alternative goals of satisfying constraints. Constraints might be motor speed, etc. 
+  
+  *Slide 12*
+  Optimal operating point is often near constraints, be them physical, performance or safety constraints. 
+  
+  Classical methods deal with these ad-hoc, such as anti-windup, or stay away from constraints which is sub-optimal. 
+  
+  Predictive control *includes constraints in the design*!
+  
+  *Slide 13*
+  MPC formulation 
+  ![](/home/rmli/Boostnote/notes/images/mpcformulation.png =500x)
+  
+  *note: as control people we minimize costs instead of maximizing reward, by convention.*
+  
+  We have our problem often formed by the objective function. But this is not so simple! Maybe the objective is not a single scalar function, so often we need a surrogate objective function. 
+  
+  Some notation notes:
+  * $N$ is the horizon - the number of steps we predict
+  * $x(t)$ is real measurement, while $x_t+k$ is a always predicted. 
+  * We always start at $x_t = x(t)$, and then predict the future. 
+  * $\\mathcal{X}$ is a polytopic region of possible states. 
+  * $\\mathcal{U}$ is a polytopic region of possible inputs 
+  * $U^*_t$ is the optimal inputs that satisfies the constraints. 
+  
+  *Slide 14*
+  However! We only implement the first step, $u^*_t$ and then predict the whole thing all over again.
+  
+  #### Applications (15-58)
+  "my favorite things interlude"
+  See Slides for applications
+  
+  Final video talking about neuroscience where there is MPC?
+  
+'''
+isStarred: false
+isTrashed: false

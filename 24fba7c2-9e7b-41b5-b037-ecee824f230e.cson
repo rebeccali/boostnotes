@@ -1,0 +1,122 @@
+createdAt: "2019-01-16T16:35:54.333Z"
+updatedAt: "2019-01-16T19:10:03.047Z"
+type: "MARKDOWN_NOTE"
+folder: "918961533723c2f424a8"
+title: "CIS 580 Lecture 1"
+tags: [
+  "lecture_1"
+  "perspective"
+  "world_coordinates"
+  "coordinates"
+  "rotation"
+  "translation"
+]
+content: '''
+  # CIS 580 Lecture 1
+  1/16/2019
+  
+  University of Pennsylvania 
+  Spring 2019
+  Notes By Rebecca Li
+  Konstantinos Daniilidis
+  
+  ---
+  
+  #### Logistics
+  If not enrolled in class  - send email "580 enrolment", nothing else. 
+  
+  ### Advances in Perception
+  
+  Previously, we could only do things like barcodes. But now we have the advances of Augmented Reality (AR), Virtual Reality (VR), and such often with monocular cameras, even on your cell phone. We can also do things like object recognition (Google Lens).
+  
+  These things bring up fundamental questions like how do you find a bounding box? Edges? etc. Machine learning has enabled this in the past few years.
+  
+  Additionally, one of the new hot topics is self driving cars. Teslas, for example, only use cameras
+  
+  This course will cover convolution, Convolutional Neural Networkrs (CNNs). 
+  
+  The **Course Website** [CIS580Spr19](https://sites.google.com/seas.upenn.edu/cis580spr19/home?authuser=0) is available here. There is only one midterm, the Wednesday just before spring break.  
+  
+  ### Perspective Projection 
+  
+  Perspective Projection is what is realized from a camera. Paralell lines are not exactly parallel, so how do we use them?
+  
+  Perspective was originally defined by Da Vinci as where "pyramid" lines are drawn from the object to the pinhole, with a plane intersection. Perspective is created on the plane intersection. 
+  
+  ![perspectograph](/home/rmli/Boostnote/notes/pgraph.jpeg =500x)
+  *A Perspectograph*
+  
+  Originally we had perspectograph which can be used to help segment images properly . This is represented as a *pinhole model*, where an image goes through and becomes flipped. In reality there is a lens at the pinhole. 
+   
+   ![perspectograph](/home/rmli/Boostnote/notes/images/pinhole.png =500x)
+  *The Pinhole Model*
+  
+  * $y$ is the height of the image at the sensor
+  *  $f$ is the distance from the lens to the image plane (sensor), which is calibrated. In a camera, this is changed in a focus ring. Note this is *not* focal length. 
+  *  $Z$ is the distance to image
+  *  $Y$ is real height of image 
+  We usually assume the image plane is in front of the lens so the object is upright, such that there is no negative sign. 
+  
+  $$y = f \\frac{Y}{Z}$$
+  
+  There are two coordinate systems at play:
+  * World Coordinate system $(X_w, Y_W, Z_w)$
+  * Camera Coordinate system $(X_c, Y_c, Z_c)$
+  
+  We note in camera coordinates, images may not have parallel lines when in reality they are. Additionally, if we put two angled photos next to each other, they look oddly more skewed since we expect all parallel lines to converge. This only works if we perceive depth, like cartoons etc. 
+  
+  ![perspectograph](/home/rmli/Boostnote/notes/images/tracks.jpeg =300x) ![perspectograph](/home/rmli/Boostnote/notes/images/tracks.jpeg =300x)
+  *One rail road looks like it leans more than the other, despite being the same image.*
+  
+  #### Coordinate systems
+  *Note: subscript c is camera coordinates, subscript w is world coordinates.*
+  The image plane $(u,v)$ is perpendicular to the optical axis. Intersection of the image plane with the optical axis is te image center $(u_c, v_c)$. Note these equations only hold for *uncropped* images. 
+  
+  So we can assume that if the center is at $u_c, v_c$ in pixels, and $f$ has some factor in pixels/mm. These can be found with calibration. 
+  
+  ![perspectograph](/home/rmli/Boostnote/notes/images/image-coords.png =500x)
+  
+  $$u = f \\frac{X_c}{Z_c} + u_c$$
+  $$v = f \\frac{Y_c}{Z_c} + v_c$$
+  
+  Now, let us convert this to a matrix form:
+  
+  $$u = f \\frac{X}{Z}$$
+  $$v = f \\frac{Y}{Z}$$
+  
+  Consider $\\lambda = Z$, the unknown depth:
+  $$\\lambda u = f X$$
+  $$\\lambda v = f Y$$
+  
+  Then we can get the matrix form $\\lambda p = K P$
+  
+  $$\\lambda \\begin{bmatrix} u \\\\ v \\\\ 1 \\end{bmatrix} = 
+  \\begin{bmatrix} f & 0 & u_c \\\\ 0 & f & v_c \\\\ 0 & 0 & 1 \\end{bmatrix}
+  \\begin{bmatrix} X \\\\ Y \\\\ Z \\end{bmatrix}$$
+  
+  where $K$ is called **intrinsic calibration**. And then we want to transform this often into world coordinates, which is fixed. If $R$ is a rotation and $T$ is the translation from camera to world coordinates:
+  
+  $$\\begin{bmatrix} X_c \\\\ Y_c \\\\ Z_c \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} R_{3x3} & T_{3x1} \\\\ 0 & 1\\end{bmatrix} 
+  \\begin{bmatrix} X_w \\\\ Y_w \\\\ Z_w \\end{bmatrix}$$
+  
+  Which then becomes:
+  
+  $$\\lambda \\begin{bmatrix} u \\\\ v \\\\ 1 \\end{bmatrix} = K \\begin{bmatrix} R & T \\end{bmatrix} \\begin{bmatrix} X_w \\\\ Y_w \\\\ Z_w \\end{bmatrix}$$
+  
+  Where $K[R\\ T]$ is called the $\\rho$-matrix, $\\lambda$ is the unknown depth. 
+  
+  #### Rotations and Translations
+  
+  How do we find $R$ and $T$? Well we can see:
+  
+  $$^c P = ^c R_w ^w P + ^c T_w$$
+  
+  $^c T_w$ is the vector from the world origin to the camera origin. 
+  $^c R_w$ can be broken down into three columns $[r_1\\ r_2\\ r_3]$ . $r_i$ is the coordinates of the world axis unit vectors w.r.t. the camera system. No rotations is the identity. 
+  Properties of $R$:
+  * Orthogonal
+  * Determinant is +1 (right handed coordinate system)
+  
+'''
+isStarred: false
+isTrashed: false
