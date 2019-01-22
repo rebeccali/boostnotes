@@ -1,0 +1,51 @@
+createdAt: "2019-01-22T15:51:27.461Z"
+updatedAt: "2019-01-22T16:34:31.288Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Viewing Earth's Surface as a Soft Matter Landscape"
+tags: [
+  "creep"
+  "chaos_theory"
+  "sediment"
+]
+content: '''
+  # Viewing Earth's Surface as a Soft Matter Landscape
+  1/22/2019
+  10:45 AM
+  Douglas Jerolmack
+  
+  * We should understand earth's surface because we live here. 
+  * Earth Flows are a main thig we stufy, such as soil and ice creep.
+  * We can also try to understand other things such as river shape and size - is it a U shape? How does the shear forces work
+  * How does day/night influence wind profiles? 
+  * Soil erodibility with rhex over dunes 
+  * Mud "Floculation"? 
+  
+  * River Profiles
+    * We can think about river "thickness" as going from high collisional stress environments to dilute suspensions
+    * Parameterized as stokes number 
+  * Landscapes are near critical between creeping and flowing - so after a pointain flows, it settles down to just into creep. 
+    * We can see slow creep through moving fence posts and stuff 
+    * Creep is rather general in soft materials, which we found by doing shear on the boundary of the material creating small rearrangements inside the materials 
+    * Creep occurs under the flowing layer which looks kind of like a boundary layer profile in that there is a smooth velocity gradient
+    * Basically we see that there's a "popcorning" strain that freeps into the subsurface as its disturbances 
+    * In glassy materials, instead of converging to static friction under static friction it actually freeps! it's an avalanche of plasticity 
+    * Disturbance enhances creep rate, but not really flow rate 
+  * Rivers are also near critical
+    * Can be near critical at banks and over-critical at center.
+  
+  
+  # In 2-3 sentences, summarize the take-home message of the talk, i.e. what was the "punchline" or main new thing discovered in the work reported?
+  We often think of earth's surfaces as stable landscapes where large perturbations can cause things like landslides or river re-pathing. But in reality, these systems full of small particles are "near critical", that is at the point between creep and flow. Furthermore, even sediments which appear to be static are often in creep as a gradient from the surface, much like a boundary layer.
+  
+  # In 3-4 sentences, describe what surprised you the most about the research presented by the speaker.
+  What surprised me the most is that he is working on characterizing how "deep" into a sediment layer the creep, and while it may appear there is a fast flowing layer, there is a gradient of particle velocity. It surprised me because this seems like something which is rather obvious, and also as you take the limit as particle size goes to zero, you get a velocity gradient the same as you might see in a fluid. It is interesting how discrete the flow layers can be. 
+  
+  # In 3-4 sentences, explain what could be improved about the way the research was conducted or what follow-up research might be helpful.
+  Many of the experiments are performned in small experimental environments in order to study large scale phenomena like rivers and mountains. it owuld be great to have a comment on how this differs from real rivers, in either fluid properties, such as reynold's number, or in sediment properties such as varying grain size or friction. The underlying research on these mock-flows is interesting but would be great to be corroborated by real data. 
+  
+  # In 3-4 sentences, describe the implications that the research may have for your own research or your life in general
+  This research is very related to jamming, which is a popular technology being experimented with in robotics as grippers, joints, and transformable materials. I think using the ideas of critical points in creep and flow are interesting to create a sort of particle-based "clutch", or slippable gripper in a robotic system. Prof. Jerolmack's work helps characterize these creeping particles and when they happen, which could help design such a gripper to be repeatable and effective.
+'''
+isStarred: false
+isTrashed: false

@@ -1,0 +1,33 @@
+createdAt: "2019-01-22T15:53:27.613Z"
+updatedAt: "2019-01-22T15:53:42.880Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Multiscale modeling of nanoparticle transport: Applications to targeted drug delivery"
+tags: []
+content: '''
+  2018-12-3
+  10:45 AM
+  # Multiscale modeling of nanoparticle transport: Applications to targeted drug delivery
+  Prof. Portonovo Ayyaswamy
+  
+  # In 2-3 sentences, summarize the take-home message of the talk, i.e. what was the "punchline" or main new thing discovered in the work reported?
+  Modeling nanoparticle motion in fluid flow can be difficult due to the incorporation of both thermal and hydrodynamic effects. These effects have elements of Brownian motions, which can be modeled with equilibrium statistical mechanics using the ease of Navier Stokes, but with small amounts of perturbations to the stress tensor. This allows us to model nanoparticles at the meso-scale more accurately.
+  
+  # In 3-4 sentences, describe what surprised you the most about the research presented by the speaker.
+  In the talk, Prof. Ayyaswamy mentioned that continuity, energy, and Navier Stokes equations cannot take into account thermal Brownian motion because these stochastic motions are averaged out. I am surprised that there does not exist a stochastic version of these equations which allow on these. Perhaps the Boltzmann equation is the answer to this, but this is beyond my understanding of fluid and statistical mechanics.
+  
+  # In 3-4 sentences, explain what could be improved about the way the research was conducted or what follow-up research might be helpful.
+  One of the constant refrains of Ayyaswamy's talk was discounting methods such as using the Boltzmann equation due to the computational complexity needed. But in one of the previous talks, it was demonstrated that surrogate models which require far less computation could be used to simulate complex equations with far less computation. It would be interesting to see if using a learning-based surrogate model could be used for modeling nano-particles.
+  
+  
+  # In 3-4 sentences, describe the implications that the research may have for your own research or your life in general.
+  The implications to me are most relevant in drug delivery. One of the questions with drug delivery is how does one design a needle or probe such that the nanoparticles actually go where you would like them to go. Modeling the diffusion at the meso-scale is exciting and could enable new research in very targeted drug delivery.
+  
+  
+  Nanoparticles experience thermal fluctuations and can be significant and low reynolds numbers, but that doesn't mean we can ignore the inertial terms. Eq stat mech - all directions are equally probably. find out how particle diffuses to another position, and diffusion must be quantified. do velocity autocorrelation. There is thermal and hydrodynamic fluctuation which change nanoparticles. Arbitrary Lagranvian euler finite element method to find thermal motion, unstructured mesh.
+  
+  continuity, energy and NavierStokes doesn't take into account thermal fluctuations due to brownian motion, this is because the equations are averaged. random stresses are added instead. boltzmann too expensive to use. Can use navier stokes, must satisfy the thermal dissipation theorem
+  
+'''
+isStarred: false
+isTrashed: false

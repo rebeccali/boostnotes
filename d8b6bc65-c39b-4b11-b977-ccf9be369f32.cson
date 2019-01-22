@@ -1,0 +1,31 @@
+createdAt: "2019-01-22T16:14:47.696Z"
+updatedAt: "2019-01-22T16:15:01.553Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Boltzmann Equation based Computational Fluid Dynamics"
+tags: []
+content: '''
+  2018-09-25
+  10:45 AM
+  # Boltzmann Equation based Computational Fluid Dynamics
+  Prof. Lian-ping Wang
+  
+  
+  # In 2-3 sentences, summarize the take-home message of the talk, i.e. what was the "punchline" or main new thing discovered in the work reported?
+  
+  Lots of research has been dome at the conventional, or macroscopic level for computational fluid dynamics. But there is a lack of methods which connect things to the mesoscopic, in this case using Boltzmann equation, length scales. This means flow as well as individual particles can be simulated at the same time, with no flow inside the particles. This is done by simplifying the Boltzmann equation using higher order terms, thus restricting the order, making it discretizable and easy to simulate relative to Navier-Stokes.
+  
+  #In 3-4 sentences, describe what surprised you the most about the research presented by the speaker.
+  I was surprised, such as in the case with viscous stress, things which are the gradient in Navier-Stokes, can be expressed instantaneously with the Boltzmann equations. This really helps the ability to do numerical simulation. Numerical simulation often takes steps, and gradients can be expensive and tricky to compute in discrete time. Anything instantaneous can be much more simply modeled especially for particle-based models.
+  
+  #In 3-4 sentences, explain what could be improved about the way the research was conducted or what follow-up research might be helpful.
+  The comparison of Lattice Boltzmann Method (LBM) and Navier-Stokes about computational complexity and time requirements was not validated. There is an opportunity to compare LBM to Navier stokes in a written program comparison. Additionally, releasing written software which runs the LBM would be incredibly useful to the CFD community. Prof. Wang's own points on the fact that numerical stability is an issue for this method could be prohibitive to this important progress.
+  6
+  #In 3-4 sentences, describe the implications that the research may have for your own research or your life in general.
+  The conversion to the Boltzmann to lattice Boltzmann equation was also something I would like to investigate as discretization is again an integral part of control theory application. It reminded me a lot of the unscented Kalman filter (UKF), which propagates points around a Gaussian distribution to better track the time evolution of a signal. Since Prof. Wang's method gives certain accuracies depending on the number of points, I wonder if this extends to Kalman filters and other estimation techniques.
+  
+  u_1 = ((\\ddot{z})/ \\sqrt{\\dot{y}^2 + \\dot{z}^2} - (\\dot{z} (2 \\dot{y} \\ddot{y} + 2 \\dot{z} \\ddot{z}))/(2 (\\dot{y}^2 + \\dot{z}^2)^(3/2)))/ \\sqrt{1 - \\dot{z}^2/(\\dot{y}^2 + \\dot{z}^2)}$$
+  
+'''
+isStarred: false
+isTrashed: false

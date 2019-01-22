@@ -1,0 +1,60 @@
+createdAt: "2019-01-22T15:58:42.693Z"
+updatedAt: "2019-01-22T15:58:54.223Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Bayesian Deep Learning for Predictive Scientific Computing"
+tags: []
+content: '''
+  2018-10-30
+  10:45 AM
+  # Bayesian Deep Learning for Predictive Scientific Computing
+  Prof. Nicholas Zabaras
+  
+  # In 2-3 sentences, summarize the take-home message of the talk, i.e. what was the "punchline" or main new thing discovered in the work reported?
+  Previous work is able to make surrogate models of simulations but are limited in dimensionality. This work uses deep learning networks in order to be able to represent simulations with an order of magnitude more dimensions, without very much training data.
+  
+  
+  # In 3-4 sentences, describe what surprised you the most about the research presented by the speaker.
+  I was surprised that the number of particles needed to explore a million-dimension space is only 20, and that increasing the number of particles is usless. This suggests to me that perhaps over 20 particles the model becomes overparaterized as we reach the bounds on performance. On the other hand, Prof. Zabaras claims this is not an optimized number formally, so perhaps for different problems the ideal number of particles changes.
+  
+  
+  # In 3-4 sentences, explain what could be improved about the way the research was conducted or what follow-up research might be helpful.
+  Prof. Zabaras's research has the benefit of adding error bars to the surrogate models he has developed. Since many of these simulations are fluid-like simulations, It would be interesting to take the bounds of an uncertain area and fill it in with the direct simulation. This could be used to make the data more accurate or to retrain the network on just the uncertain areas instead of generating a whole new simulation when only some areas are full of uncertainty.
+  
+  
+  # In 3-4 sentences, describe the implications that the research may have for your own research or your life in general.
+  Aerial roboticists like myself often skip over doing full computational fluid dynamics (CFD) simulations in our flight models due to the computaitonal cost of running such a model. I believe that if people continue to improve these approximate methods, then CFD could become very tractable and enaple aerial robotics research to take advantage of more advanced aerodynamic behaviors, such as ring vortex state or forced circulation. However, the current method only takes a single parameter as an input. I think the main hurdle might be expanding this method to have an input parameter of an aerodynamic surface in order to produce relevant aerodynamic effects.
+  
+  
+  problem of interest: uncertainty qualifification for simulations which are expensive to run. Substitude expensive simulator with surrogate model. Run simulator a few times, and then develop surrogate from data driven perspective. Data may not be perfect - need to give confidence value on predictions.
+  
+  Input is a distribution, which gets propogated through latent space "model reduction" and then goes to the output. We also want to produce samples in the latent space of the high dimensional data, which we might put through the simulator to check.
+  
+  We need to borrow from computer science. A surrogate model can be a mapping from an image to the output variables like fluid flow, pressure, etc (multi-output).
+  
+  Typical approache: KLE-GP. Model reduction like PCA, and then use gaussian processes to make outputs. A Gaussian Process is very high dimensional gaussian distribution. Doing more than 100 dimensions is hard with this technique
+  
+  My work pushes everything to 1000 dimensionality.
+  Instead of doing PCA model reduction, use an encoder network to get a feature map, and then decode it back into the multi outputs. Can we train this with few runs of simulations?
+  
+  We use CNNs. We extract local averages of the image. Transposed convolution arithmetic allows you to scale up data. Batch normalization is important.
+  CNNs are superior for sparse, few parameters, translation invariant.
+  
+  Information is lost as you move along, so you should concatenate the inputs (first input x1, secont input (x1, x2), etc) which is called a Dense Block. This helps maintain a robust calculation
+  
+  1M parameters in the network to configure.
+  
+  Consider the problem of Darcy Flow. We want to sweep over an input parameter K to compute u,p, with only a few K inputs. K is a gaussian random field. As we increase the KLE expansion, the system can become very nuts.
+  
+  The NN without bayesian is pretty good, but only since we actually know the answer. How can we quantify this without knowing the answer?
+  
+  
+  Bayesian NN: we have a noise network with a posterior distribution. The priors should induce sparsity. This makes a distribution in a million dimension space. We need to sample from this distribution.
+  
+  Stein variational gradient descent - this is a 2 line implementation in pytorch, which we can use to force our model into any distribution. we use 20 particles to explore the million dimensional space.
+  
+  Physics embedded NN for NO DATA neural networks.
+  
+'''
+isStarred: false
+isTrashed: false

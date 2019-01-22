@@ -1,0 +1,66 @@
+createdAt: "2019-01-22T16:14:33.147Z"
+updatedAt: "2019-01-22T16:14:44.995Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Mechanics, Manufacture, and Validation of soft bioelectronics"
+tags: []
+content: '''
+  9/18/2018
+  Nanshu Lu
+  # Mechanics, Manufacture, and Validation of soft bioelectronics
+  
+  1. Mechanics of flexible structure
+  2. Freeform manufacture - no stencil/template/mask
+  3. 2D materials and devices
+  4. Bio-electronics interface - humans are weird
+  
+  cars have sensors, humans have two sensors, they generate lots of data.
+  human skin stretchy to 20%, silica to 1% or less.
+  meandering wires can make lots of soft material / serpentine ribbons.
+  Serpentine ribbons can be not very strechable if it is a thick ribbon - the inner crest forms stress concentrations.
+  Filamentary serpentine design is very thin and can be filamentary. Then you can put it on your neck and recognize words.
+  Normal photolitho is a thing but not great, costly
+  Additive takes a while to dry, can react with sweat or is gold
+  laser cutting is too thermal
+  what if you use a plotter/cutter? feature size cannot be smaller than 250 um
+  - have to put metalized PET/PI as base substrate. Then cut off
+  
+  can measure skin hydration, eeg, emg, ecg, respiration, temperature
+  can also measure scg with printed piezo. can calculate blood pressure as continuous blood pressure measurement.
+  
+  Wireless:
+  use 3 layers: nfc coil + chip, ecg measurement layer, disposable electrode layer so
+  
+  BLE works for longer distance, requires battery-filled dongle.
+  
+  Reusable adhesion:
+  cratered surface (octopus) vs pillared surface (gecko). crater underwater works much better.
+  
+  studied effects of cratered surfaces
+  
+  thinnest material is fully conformal, poor contact. under 7um. If it's that thin, no tape, vanderwalls force holds it on.
+  
+  thin materials like graphene form liquid nanobubbles as there is signs of good adhesion.
+  
+  graphene can be spin coated, then etched then cut. has high resistance. good electrode material. interface impedance is as good as gel electrode. failure occurs after 4 hrs, 96 hours with liquid bandace.
+  
+  print stuff and put it on the back of rat eyeballs.
+  can also do stimulation
+  
+  graphene based non-invasive glucose meter
+  
+  In 2-3 sentences, summarize the take-home message of the talk, i.e. what was the "punchline" or main new thing discovered in the work reported?
+  
+  Thin electronic tattoos can be more versatile and effective than typical sensors used on the human body. While problems exist within manufacturing, by scaling the tattoo larger, we can achieve sensing things like temperature, blood pressure, skin hydration and more while having a sensor you can wear for as long as a week.
+  
+  In 3-4 sentences, describe what surprised you the most about the research presented by the speaker.
+  
+  What was most surprising about Prof. Lu's research is her ability to find and pursue cheap and effective manufacturing methods. It would be very easy to investigate skin tattoos through standard lithography methods, but she has found new methods for production. Her low cost methods for manufacturing big tattoos with a paper cutter is very cool. Moving forward, she has found very
+  
+  In 3-4 sentences, explain what could be improved about the way the research was conducted or what follow-up research might be helpful.
+  
+  In 3-4 sentences, describe the implications that the research may have for your own research or your life in general.
+  
+'''
+isStarred: false
+isTrashed: false
