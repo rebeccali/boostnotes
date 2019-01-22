@@ -1,0 +1,24 @@
+createdAt: "2019-01-22T17:02:20.726Z"
+updatedAt: "2019-01-22T17:27:58.514Z"
+type: "MARKDOWN_NOTE"
+folder: "e48da38f90ddf99f14e3"
+title: "MEAM 620 - Lecture 2 - Rigid Body Transformations"
+tags: [
+  "lecture_2"
+  "rotation_matrix"
+]
+content: '''
+  # MEAM 620 - Lecture 2 - Rigid Body Transformations 
+  1/22/2019 
+  DEAN Vijay Kumar 
+  
+  Accompanying PDF [03_transformations.pdf](03_transformations.pdf)
+  
+  ### Slide 8
+  Rotation matricies are the multiplication of the basis vectors in $A$ to $B$ to get $^A R_B$.
+  
+  ### Slide 9 
+  Homogenous Transormation matrix: allows you to also do the position transformation with the rotation, which contains the Rotation Matrix. 
+'''
+isStarred: false
+isTrashed: true

@@ -1,5 +1,5 @@
 createdAt: "2019-01-17T17:44:00.614Z"
-updatedAt: "2019-01-22T15:59:04.489Z"
+updatedAt: "2019-01-22T17:27:54.495Z"
 type: "MARKDOWN_NOTE"
 folder: "e48da38f90ddf99f14e3"
 title: "Meam 620 Lecture 1 - Introduction"
@@ -20,4 +20,4 @@ content: '''
   Next time: Rigid body transofrmations, 
 '''
 isStarred: false
-isTrashed: false
+isTrashed: true
