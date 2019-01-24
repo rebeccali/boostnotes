@@ -1,0 +1,56 @@
+# ENM 531 Lecture 1 - Probability
+1/17/2019
+
+---
+### Notation 
+* $w,x,y$: event realizations, vectors (column unless stated otherwise), functions, probability distributions
+* $X,Y,Z$: random variables, matricies, some functions. 
+* $\mathcal{F,L}$: sets or operators 
+* $\mathbb{E}[f(x)] := \mathbb{E}_{x~p(x)}[f(x)]$
+* $(\Omega, \mathcal{F}, p)$: 
+  * $\Omega$ is the *sample space*
+  * $\mathcal{F}$ is a *$\sigma$-algebra*
+  * $p$ is a *probability measure*
+
+---
+### Discrete Random Variable 
+A discrete random variables is an event that takes discrete values, e.g. coin flipping. 
+We will say $P(A)$ denotes the probability that the event $A$ is true, and $0 \leq P(A) \leq 1$.  
+$P(\bar{A})$ is the probability of the event *not* $A$. $P(\bar{A}) = 1 - P(A)$
+A discrete random variable X is an event taken values at a finite or countably infinite discrete set $\mathcal{X}$. 
+* We denote the probability $X=x$ is $P(X=x)$, or simply $P(x)$. More formally, $P(\{\omega:X(\omega) = x\})$ 
+* $\sum_{x \in \mathcal{X}} p(x) = 1$
+* $P(\{\emptyset\}) = 0$
+
+We also now know the following mappings:
+* $P: \mathcal{F} -> [0,1]$
+* $X: \Omega -> \mathcal{X}$
+
+$P(.)$ is called a **probability mass function**.
+
+---
+### Fundamental Rules of Probability
+
+* Union: $P(A\cup B) = P(A) + P(B) - P(A \cap B)$. This implies the **union bound**: 
+  * Union Bound: $P(A\cup B) \leq P(A) + P(B)$
+* Joint: $P(A,B) = P(A\cap B) = P(A|B) P(B) = P(B|A) P(A)$. This is called the **Product Rule**.
+* **Conditional Probability**: $P(A|B) = \frac{P(A,B)}{P(B)},\ P(B)>0$. This is said probability $A$ given $B$. (Note: $P(B)$ is called a *marginal distribution*)
+
+---
+### Sum Rule/ Rule of Total Probability
+Given the joint $P(A,B)$, we can define the marginal distribution as:
+$$P(A) = \sum_{b \in B} P(A,B) = \sum_{b \in B} P(A|B) P(B) = \sum_{b \in B} P(A|B=b) P(B=b)$$
+
+---
+### Bayes Rule
+What is the probabilty of $X$ takes $x$ given $Y$ takes $y$?
+
+$$P(X=x|Y=y) = \frac{P(X=x,Y=y)}{P(Y=y)} = \frac{P(Y=y|X=x) P(X=x)}{\sum_{x'} P(Y=y|X=x') P(X=x')}$$
+
+---
+### Independence
+Two random variables $X,Y$ are (unconditionally) independent if 
+$$X \perp Y \iff P(X,Y) = P(X) P(Y)$$
+
+Two random variables $X,Y$ are conditionally independent given $Z$ if 
+$$X \perp Y | Z => P(X,Y|Z) = P(X|Z) P(Y|Z)$$

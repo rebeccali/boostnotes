@@ -1,0 +1,118 @@
+# Lecture 2 Distributions 
+1/22/2019
+
+---
+### Common Distributions
+**Binomial Distribution**: $X\sim Bin(n,\theta)$
+* *Probability Mass Function*: $Bin(n,\theta) = {{n}\choose{k}} \theta^k (1-\theta)^{n-k}$ where 
+  * ${n\choose k}:= \frac{n!}{(n-k)!k!}$
+  * $E[x] = n\theta$
+  * Variance: $Var[x] = n\theta(1-\theta)$
+  * e.g. $\text{event }X = {\text{get K tails in n coin tosses}}$
+    * $\theta = 0.5$ 
+    * $n =$# of trials 
+    * Generalizes to *multi-nomial* when the event space is not binary
+  
+**Bernoulli Distribution**: $X\sim Ber(\theta)$  
+* *Probability mass function (pmf)*: $Ber(\theta) = \theta$
+
+TODO: insert corrected thing once ariella tells me how it works
+
+* Generalizes to the multi-nominal distribution for non-binart outcomes
+
+**Poisson Distribution**: $X \sim Poi(\lambda)$
+* $X \in \{0,1,2..\}$
+* PMF: $Poi(\lambda) = \frac{e^{-\lambda} \lambda^x}{x!}$
+
+---
+### Continuous Random Variables
+$A = (X \leq a)$, $B = (X \leq b)$, $W = (a \lt x \leq b)$
+
+$B = A \cup W$, $A \cap W = \{\emptyset \}$
+
+$P(B) = P(A) + P(W) - \cancel{P(A\cap W)} \Rightarrow P(W) = P(B) - P(A)$
+
+* *Cumulative Distribution Function (CDF)*: 
+  * $F(q):= p(x\leq q)$
+  * $P(W) = P(a\lt x \leq b) = F(b) - F(a)$
+
+![](/home/rmli/Boostnote/notes/images/cdf_handdrawn.png =500x)
+
+* $\lim_{x\to-\infty}F(x) = 0$
+* $\lim_{x\to+\infty}F(x) =1$
+* $a \leq b \Rightarrow F(a) \leq F(b)$
+* $f(x) = \frac{d}{dx} F(x)$
+* $P(a\lt x\leq b) = P(F(b) - F(a)) = \int_b^a f(x) dx$
+  * $f(x)$ is the probability density function (pdf) of x
+* $f(x)>0$
+* $\int_{-\infty}^\infty f(x)dx = 1$
+* $\int_{x \in A} f(x) dx = P(x \in A)$
+
+---
+*NOTE: $\alpha$ is a scalar.*
+### Mean of a Random Variable
+The mean is also called a *first moment*.
+$\mu = E[x] = E[x]_{x \sim P(x)} =$
+* Continuous: $\mu =\int_{x \in X} x p(x) dx$
+* Discrete: $\mu = E[X] = \sum_{x \in X}x p(x)$
+* $E[\alpha] = \alpha$ 
+* $E[\alpha f(x)] = \alpha E[f(x)]$
+* $E[f(x) + g(x)] = E[f(x)] + E[g(x)]$
+
+### Variance of a Random variable
+Also called the Second moment of a random variable
+* $\sigma^2 = Var[x] = E[(x-\mu)^2]$ where $x$ is teh random variable.
+* $\sigma^2 = \int_\mathcal{X} (x-\mu)^2 p(x) dx = \int_\mathcal{X} x^2 p(x) dx + \mu^2 \int_\mathcal{X}p(x) dx - 2\mu \int x p(x) dx$
+  * Note $\int(px)dx = 1$
+  * p(x) is the single realization of a random variable
+  * $\sigma^2 = E[x^2] - \mu^2$
+  * $Std[x] = \sqrt{Var[x]} = \sqrt{\sigma^2}$
+* $Var[\alpha] = 0$
+* $Var[\alpha + f(x)] = \alpha^2 Var[f(x)]$
+
+---
+$F(x):=P(X\leq x),\  F^{-1}$ then $F^{-1}(\alpha)$ then this is the value $x_\alpha$ such that $P(X \leq x_\alpha) = \alpha$. This is the $\alpha$-quantile of $X$. 
+* $F^{-1}(0.5)$ is the **median** of $X$.
+
+---
+### The Univariate Gaussian
+$P(X=x) = \mathcal{N}(x|\mu, \sigma^2)$
+$X \sim \mathcal{N}(\mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} exp(-\frac{1}{2 \sigma^2}(x-\mu)^2)$
+* $\frac{1}{\sqrt{2 \pi \sigma^2}}$ is a normalizing constant
+* $\mu = E[x]$, also median and mode (TODO?)
+* $\sigma^2 = Var[x]$
+Properties:
+* *Standard Normal Distribution:* $\mu = 0, \sigma^2 =1$
+* *Precision* $\lambda = 1/\sigma^2$
+* *CDF* $\Phi(x;\mu, \sigma^2) = \int_{-\infty}^x \mathcal{N}(z|\mu, \sigma^2)dz$
+  * $\Phi(x;\mu, \sigma^2) = \frac{1}{2}[1+erf(\frac{z}{\sqrt{2}})]$
+  * $z = \frac{x - \mu}{\sigma}$
+  * $erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2}dt$
+* $lim_{\sigma^2 \to 0} \mathcal{N}(x|\mu, sigma^2) = \delta(x-\mu)$
+  * $\delta(x) = \begin{cases} 
+      \infty & x = 0 \\
+      0 &  x \neq 0
+   \end{cases}$
+   * $\int_{-\infty}^\infty \delta(x) dx = 1$
+ * *Shifting Property:*$\int_{-\infty}^\infty f(x) \delta(x-\mu) dx = f(\mu)$
+
+---
+### Covariance and Correlation
+A Joint distribution $P(x_1, x_2 .. x_d),\ p(x),\ x \in \mathbb{R}^d \ x=(x_1, x_2.. x_d)$. Consider $x,y$ (TODO: what are x y ?)
+$Cov[x,y] = E[(x - E[x])(y - E[y])] = E[xy] - E[x] E[y]$ (TODO: capitals? should there be a comma E[xy])
+$x,y$ are realizations of $X,Y$
+
+$$cov[x] = cov[x,x] = E[(X - E[x])(X - E[x])^T] = \begin{bmatrix}
+var(x_1) & cov(x_1, x_2) & .. & cov(x_1, x_d) \\ 
+cov(x_2, x_1) & var(x_2) & .. & cov(x_2, x_d) \\ 
+& .. & .. & \\
+cov(x_d, x_1) & .. & .. & var(x_d)
+\end{bmatrix} = 
+\sum_{dxd} = \Lambda^{-1}$$
+* Covariance Matrix: $\sum_{dxd}$
+* Precision Matrix: $\Lambda^{-1}$
+
+*Pearson Correlation*: $corr[x,y] = \frac{cov[x,y]}{\sqrt{var(x)} \sqrt{var(y)}}$ (TODO: check this)
+* $-1 \leq corr[x,y] \leq 1$*
+* $corr[x,y] = 1 \iff y = \alpha x + \beta \text{ for some }\alpha, \beta$
+* $corr[x,y] = 0$,  $x$ and $y$ are uncorrelated

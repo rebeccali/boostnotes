@@ -1,5 +1,5 @@
 createdAt: "2019-01-24T15:21:18.770Z"
-updatedAt: "2019-01-24T17:55:44.581Z"
+updatedAt: "2019-01-24T19:09:08.327Z"
 type: "MARKDOWN_NOTE"
 folder: "615c65da08113766bcd0"
 title: "Lecture 2 Distributions"
@@ -89,7 +89,7 @@ content: '''
   $P(X=x) = \\mathcal{N}(x|\\mu, \\sigma^2)$
   $X \\sim \\mathcal{N}(\\mu, \\sigma^2) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} exp(-\\frac{1}{2 \\sigma^2}(x-\\mu)^2)$
   * $\\frac{1}{\\sqrt{2 \\pi \\sigma^2}}$ is a normalizing constant
-  * $\\mu = E[x]$, also median and mode (TODO?)
+  * $\\mu = E[x]$, also median and mode for univariate gaussian
   * $\\sigma^2 = Var[x]$
   Properties:
   * *Standard Normal Distribution:* $\\mu = 0, \\sigma^2 =1$
@@ -108,10 +108,11 @@ content: '''
   
   ---
   ### Covariance and Correlation
-  A Joint distribution $P(x_1, x_2 .. x_d),\\ p(x),\\ x \\in \\mathbb{R}^d \\ x=(x_1, x_2.. x_d)$. Consider $x,y$ (TODO: what are x y ?)
-  $Cov[x,y] = E[(x - E[x])(y - E[y])] = E[xy] - E[x] E[y]$ (TODO: capitals? should there be a comma E[xy])
+  A Joint distribution $P(x_1, x_2 .. x_d),\\ p(x),\\ x \\in \\mathbb{R}^d \\ x=(x_1, x_2.. x_d)$. Consider $X,Y$
+  $Cov[x,y] = E[(x - E[x])(y - E[y])] = E[xy] - E[x] E[y]$ (TODO: capitals? yes should there be a comma E[xy])
   $x,y$ are realizations of $X,Y$
   
+  These following might be capitals 
   $$cov[x] = cov[x,x] = E[(X - E[x])(X - E[x])^T] = \\begin{bmatrix}
   var(x_1) & cov(x_1, x_2) & .. & cov(x_1, x_d) \\\\ 
   cov(x_2, x_1) & var(x_2) & .. & cov(x_2, x_d) \\\\ 
@@ -122,7 +123,7 @@ content: '''
   * Covariance Matrix: $\\sum_{dxd}$
   * Precision Matrix: $\\Lambda^{-1}$
   
-  *Pearson Correlation*: $corr[x,y] = \\frac{cov[x,y]}{\\sqrt{var(x)} \\sqrt{var(y)}}$ (TODO: check this)
+  *Pearson Correlation*: $corr[x,y] = \\frac{cov[x,y]}{\\sqrt{var(x)} \\sqrt{var(y)}}$ 
   * $-1 \\leq corr[x,y] \\leq 1$*
   * $corr[x,y] = 1 \\iff y = \\alpha x + \\beta \\text{ for some }\\alpha, \\beta$
   * $corr[x,y] = 0$,  $x$ and $y$ are uncorrelated
