@@ -1,0 +1,149 @@
+createdAt: "2019-01-24T21:29:29.086Z"
+updatedAt: "2019-01-24T22:41:33.294Z"
+type: "MARKDOWN_NOTE"
+folder: "615c65da08113766bcd0"
+title: "ENM-531 Lecture 3 - Probabiity and Statistics Primer"
+tags: [
+  "multivariate_gaussian"
+  "linear_transformation"
+]
+content: '''
+  # ENM-531 Lecture 3 - Probabiity and Statistics Primer 
+  1/24/2019
+  Tuesday will be a tutorial on autograd and such - make sure you set your laptop up!
+  
+  ---
+  ### Correlation and linear independence
+  Correlation does not mean they are not indepedent, but uncorrelated variables will always be independent
+  
+  ---
+  ### The Multivariate Gaussian distribution 
+  Given a random variable $x\\in\\mathbb{R}^d$, $x = (x_1, x_2,..,x_d)$, the Multivariate Gaussian is:
+  
+  $$X \\sim \\mathcal{N}(\\mu, \\Sigma) = \\frac{1}{(2 \\pi)^{d/2}|\\Sigma|^{1/2}}exp[-\\frac{1}{2}(x-\\mu)^T \\Sigma (x-\\mu)]$$
+  
+  Properties:
+  $\\mu = E[x] \\in \\mathbb{R}^d$
+  $\\Sigma = cov[X,X]\\in \\mathbb{R}^{dxd}$
+  Precision: $\\Lambda = \\Sigma^{-1}$
+  
+  ![](/home/rmli/Boostnote/notes/images/mvgaussian.png =500x)
+  
+  If $\\Sigma$ is 2x2, the diagonal is the variances, while the off diagonal measure the correlation. 
+  * In an uncorrelated case, the off diagonal is zero. 
+  * In highly correlated case, the off diagonal will have similar magnitude to the diagonal. 
+  
+  ---
+  ### Transformations of Random Variables 
+  ![](/home/rmli/Boostnote/notes/images/transformrv.png =500x)
+  
+  Let's start with the most basic case, **Linear transformations.**
+  #### Linear Transformations
+  We have variable $X \\sim P_x(x)$, $Y = f(x)$. Is $Y \\sim P_y(y)$?
+  * Linear Transformations look like $Y = f(x) = Ax+b$
+  
+  Can we say anything about its first moment (mean)?
+  * $E[Y] = E[AX+b] = A \\mu + b$, where $\\mu = E[X]$
+  * We  note the expected value of $A, b$ which are constant is just the constant 
+  
+  What about the Covariance of a linear transformation?
+  * $cov[Y] = cov[Ax+b] = A\\Sigma A^T,\\ \\Sigma = cov[X]$
+  
+  
+  #### General Transformations
+  The Discrete case: Assume $X$ is a discrete random variable
+  * PMF of $y$: $P_y(y) = \\sum P_x(x)$ where the sum is over $x: \\{f(x)=y\\}$
+  
+  The Continuous case: Assume $X$ is a continuous random variable
+  * CDF of $y$: $F_y(y)$ is equivalent to:
+    * $= P(Y \\leq y) = P(f(x) \\leq y)$
+    * $= P(x \\in \\{x | f(x) \\leq y\\}) = P(x \\leq f^{-1}(y))$
+    * $= F_x(f^{-1}(y))$
+  
+  Another result about Probability mass function:
+  $$P_y(y) = \\frac{dx}{dy} P_x(x)$$
+  Proof:
+  $P_y(Y) = \\frac{d}{dy} F_y(y) = \\frac{d}{dy}F_x(f^{-1}(y)) = \\frac{dx}{dy} \\frac{d}{dx} F_x(x) = \\frac{dx}{dy}P_x(x)$
+  
+  Multivariate Result : $P_y(y) = P_x(x) | det \\frac{dx}{dy}|$
+  
+  #### Central Limit Theorem
+  Consider $N$ random variables with probaility density functions (pdf's) $P(X_i),\\ i = 1,..,N$. Each of these pdf's has a mean $\\mu$ and variance $\\sigma^2$. Each Random variable is indepedent and identically distributed (same pdf) (i.i.d.). 
+  
+  Let $S_N = \\sum_{i=1}^N x_i$. The probability $S_N = s$ is
+  $$P(S_N = s) = \\frac{1}{\\sqrt{2\\pi N \\sigma^2}}exp[-\\frac{1}{2} \\frac{(s-N\\mu)^2}{N \\sigma^2}]$$
+  
+  As $N \\to \\infty$, this converges to a Gaussian.
+  
+  $$Z_N = \\frac{S_N - N\\mu}{\\sigma \\sqrt{N}} = \\text{Standard Normal distribution as } N \\to \\infty $$
+  
+  This means for any distribution, the sum of any distribution is a gaussian. Surprising!
+  
+  ---
+  ### Monte Carlo Approximation 
+  $X \\sim P_x(x),$ $Y = f(x)$, $Y \\sim P_y(y)$. 
+  
+  Assume we can draw samples out of $X$ and we want to say something about $P_y$. Draw $S$ samples of $X$ called $x_1,.. x_s \\sim P_x(x)$. These samples are independent and identically distributed (i.i.d.). We can appoximate $P_y$ using the empirical distrution of the transformed samples $$:
+  $$y_i = f(x_i),\\ i=1,2,..,s$$
+  
+  **Empirical Measure**: Assume we have a dataset $D = (y_1,..,y_s)$. The empirical measure is defined as 
+  $$P(A) = \\frac{1}{s}\\sum_{i=1}^s \\delta_{y_i}(A)$$
+  
+  $$\\delta = \\begin{cases} 1 & y \\in A \\\\ 0 & y \\notin A \\end{cases}$$
+  
+  We can make some emperical approximations:
+  * $E[f(x)] = \\int f(x)p(x)dx \\approx \\frac{1}{s}\\sum_{i=1}^s f(x_i)$ for $x \\sim P_x(x)$
+  * Empirical mean of x: $\\bar{x} = \\frac{1}{s}\\sum_{i=1}^s x_i$
+  * Emperical Variance of x: $var[x] \\approx \\frac{1}{s}\\sum_{i=1}^s (x_i - \\bar{x})^2$
+  * $\\frac{1}{s}|\\{x_i \\leq c\\}| \\approx P(x \\leq c)$
+  * Median of x: median($x_1,...x_s$) $\\approx$ median(x)
+  
+  --- 
+  ### Metrics 
+  We want to compare probability distributions, much like we have the Euclidean metric. 
+  
+  **Entropy**: If we have a random variable $X \\sim P(x)$ (x distributed according to P), the *entropy* is defined to be:
+  $$\\mathbb{H}[x] = - \\int P(x) \\log (P(x)) dx$$
+  
+  **Relative Entropy/Kullback-Leibler Divergence**: This is defined between two distributions. Given Random variables $X \\sim P(x)$, $Y \\sim P(y)$, the relative entropy is defined:
+  
+  $$\\mathbb{H}[X|Y] = \\int \\log \\frac{P(y)}{P(x)} P(x) dx := \\mathbb{KL}[P(x) || P(y)]$$
+  
+  This is sort of a distance between the distribution.
+  *Note: the base of the log is usually 2. TODO: check this.*
+  
+  **Mutual Information:** Given Random variables $X \\sim P(x)$, $Y \\sim P(y)$, the mutual information is defined:
+  
+  $$I(x,y) = \\int_{x\\in X} \\int_{y\\in Y} log \\frac{P(x,y)}{P(x)P(y)}P(x,y)dx dy $$
+  
+  This is a generalized measure that can quantify dependence even if correlation is 0. 
+  Another way to view this is as the KL divergence between the joint and the marginal:
+  
+  $$I(x,y) = \\mathbb{KL}[P(x,y)||P(x)P(y)]$$
+  
+  This kind of says how much information can I gain about X if I observe y?
+  
+  ### Statistical Comparisons 
+  If we want to compare numbers, we might want to look at the ratio. The same sort of thing we can do with probability densities, or density ratios. 
+  
+  Let's define $r(x) = \\frac{p(x)}{q(x)}$. $q(x)$ is a bell curve wrt x, while $p(x)$ is some double hump bell curve or something. $r(x)$ is the "correction factor" to turn $q$ into $p$, such that $p(x) = r(x)q(x)$
+  
+  **Example: Bayes Theorem**
+  We have 2 random variables $x,y$. Bayes says $P(y|x) = \\frac{P(x|y)P(y)}{P(x)}$. 
+  * $P(y|x)$ is the posterior distribution over $y$. 
+  * $P(x|y)$ is the likelyhood. 
+  * $P(y)$ is the prior. 
+  * $P(x)$ is the marginal likelyhood. This is because $P(x) = \\int P(x|y) P(y) dy$, as in we're marginalizing out $y$. 
+  
+  **Example: KL divergence**
+  $\\mathbb{KL}[P(x) || Q(y)] = \\int \\log \\frac{Q(y)}{P(x)} P(x) dx = E[\\log \\frac{Q(y)}{P(x)}]_{x \\sim p(x)}$
+  
+  How could we compute things like this? Use monte carlo and related techniques. 
+  
+  ### Joint and Marginal distributions
+  Let $P(x,y,z)$ be a multivariate gaussian distribution. 
+  * The marginal distribution $P(x)$ is also gaussian. 
+  
+'''
+isStarred: false
+isTrashed: false
