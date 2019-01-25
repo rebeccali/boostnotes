@@ -1,0 +1,77 @@
+createdAt: "2019-01-25T16:06:36.342Z"
+updatedAt: "2019-01-25T16:59:55.052Z"
+type: "MARKDOWN_NOTE"
+folder: "a68684cd8e736a10e471"
+title: "Snakey Robots and stuff"
+tags: [
+  "snake_robots"
+]
+content: '''
+  # Snakey Robots and stuff  
+  Howie Choset 
+  1/25/2019
+  
+  
+  MedRobotics - Company working on snake medical robots
+  BITO robotics
+  Hebi robotics
+  
+  # Problem statement:
+  we want to go from coordinated evolution -> generalized forces through equations of motion 
+  Some simple first order relationship 
+  $\\xi = -A(\\alpha) \\dot{\\alpha}$
+  * $\\xi$ is body velocity 
+  * to steer robot, we have bases functions like sinusoidal functions (serpenoid curve)
+    * can couple degrees of freedom to make shape templates so you can plan snake robots with 2 bases functions 
+    * Can we have snake robots interact with a granual medium?
+    * we figured out how to do this in a granual medium
+    * Map the vector field of the bases functoins by having it move in the medium 
+  
+  # Sidewinding
+  There is not constant contant with environment, so this is kind of a bit harder 
+  There's like two waves going on in a snake - we can couple vertical and horizontal waves by how the contact works -> so we have a 2d space 
+  
+  Endoscopes: do not buckle when you're inside bodies
+  
+  In reality strong assumption of where the robot is - need to update to reflect real patient 
+  
+  We want to now the linearized quaternion or something like that - Clifford allegedly did this in 1833
+  
+  Bingham distribution somehow enables force sensors - complementary model update using baysian optimization 
+  
+  use this to map stiffness in an object with a few number of pokes 
+  
+  # adaptable control 
+  
+  compliant controller ofr the 16DOF snake 
+  
+  the hexapod snake is a series elastic actuator as an output torque sensor 
+  
+  Hebi robotics - customizing robotics 
+  robotkinematics.org 
+  
+  Plane construction using mobile manipulators 
+   - multi robot problem planning problem
+   - bypass exponential growth with a centralized planner 
+   - use RL? only 70% of the time, then 30% of the time solved with planner (demonstration learning with actual planner)
+   - highly cluttered spaces is still a problem
+   - scaffoldig automatically build 
+  
+  Confined space assembly 
+  
+  wow he had like 0 women researchers acknowledged on any slides
+  
+  also snake robots allow us to have non-surgeons do analysis/whatever 
+  to fix heart arrythmias, sometimes you go burn some holes in the heart and occasionally we can do ablation from outside. 
+  FDA skittish on autonomy
+  questions: 
+  * what's the process to go from building a snake robot to have FDA approval for internal medicine? What was one of the hardest challenges with this
+  * multiple snake fingers?
+  
+  emittance controller? what is this
+  
+  
+  
+'''
+isStarred: false
+isTrashed: false
