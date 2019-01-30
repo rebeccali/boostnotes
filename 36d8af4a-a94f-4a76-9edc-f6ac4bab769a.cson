@@ -1,0 +1,17 @@
+createdAt: "2019-01-29T21:28:45.506Z"
+updatedAt: "2019-01-29T21:39:22.448Z"
+type: "MARKDOWN_NOTE"
+folder: "615c65da08113766bcd0"
+title: "ENM531 Lecture 4"
+tags: []
+content: '''
+  # ENM531 Lecture 4
+  
+  Artificial Neural networks - Yi Bo
+  
+  Neurons
+  
+  Activation functions: linear, ard thresholds, or sigmoids. Linear funciotions composed are linear so there would be no point. Hard threshold is not differentiable, so we'll use a sigmoid. 
+'''
+isStarred: false
+isTrashed: false
